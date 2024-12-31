@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { v4 } from 'uuid'
 import Header from "./header"
 import AddContact from "./addContact"
 import ContactList from "./contactList"
@@ -21,16 +22,24 @@ function App() {
   const [contact_list, setcontact_list] = useState([]);
   const add_ContactHandler =(contact)=>{
     // console.log(contact)
-    setcontact_list([...contact_list, contact])
+    setcontact_list([...contact_list, {id: v4(), ...contact}])
 
   }
 
-  useEffect(()=>{
-    const retriveData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    if(retriveData) {
-      setcontact_list(retriveData)
-    }
-  },[]);
+  const removeContacts = (id)=>{
+    const newContactList = contact_list.filter((contact)=>{
+      return contact.id !== id
+    })
+    setcontact_list(newContactList)
+
+  }
+
+  // useEffect(()=>{
+  //   const retriveData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+  //   if(retriveData) {
+  //     setcontact_list(retriveData)
+  //   }
+  // },[]);
 
 
   useEffect(()=>{
@@ -43,7 +52,7 @@ function App() {
         <h1>Hello!</h1>
         <Header />
         <AddContact addContactHandler={add_ContactHandler}/>
-        <ContactList contacts={contact_list}/>
+        <ContactList contacts={contact_list} removeContactData={removeContacts}/>
       </div>
     </div>
   );
