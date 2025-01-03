@@ -1,0 +1,24 @@
+{
+  "contacts": [
+    {
+      "id": "7ce97b97-77a7-49b1-966c-ea7be72efef5",
+      "name": "rup",
+      "email": "rup@gmail.com"
+    },
+    {
+      "id": "e94890cf-8769-4b03-9b36-d9f61b836743",
+      "name": "new user1",
+      "email": "user1@gmail.com"
+    },
+    {
+      "id": "7fd3ef0b-7f96-4df4-b13d-c855ae0d8645",
+      "name": "user2",
+      "email": "user2@gmail.com"
+    },
+    {
+      "id": "b038a6bd-d457-4de3-94d1-33f77fde7cde",
+      "name": "user3",
+      "email": "user3@gmail.com"
+    }
+  ]
+}
