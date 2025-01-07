@@ -1,6 +1,7 @@
 import { UserProfile } from "./components/UserProfile"
 import {ConditionalRendering1,ConditionalRendering2} from './components/ConditionalRendering'
 import { EventHandling } from "./components/EventHandling"
+import { UsingStates1, UsingStates2 } from "./components/UsingStates"
 
 
 export default function App(){
@@ -27,6 +28,13 @@ export default function App(){
 
             <div>
                 <h2>Event Handling</h2>
+                <EventHandling />
+            </div>
+
+            <div>
+                <h2>Using State</h2>
+                <UsingStates1/>
+                <UsingStates2/>
             </div>
         </div>
     )
