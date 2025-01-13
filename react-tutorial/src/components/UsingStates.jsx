@@ -33,7 +33,7 @@ export function UsingStates1(){
                 </div>
                 <div>
                     <label htmlFor="display-name">DisplayName - </label>
-                    <input type="text" name="display-name" value={username}/>
+                    <input type="text" name="display-name" defaultValue={username}/>
                 </div>
                 <button disabled={isDisabled}>Sign In</button>
             </form>

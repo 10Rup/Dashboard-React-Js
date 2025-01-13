@@ -10,12 +10,22 @@ export default function App(){
     const [usersData, setUserData] = useState([
         {
             id:1,
-            name:'Ram',
+            name:'user-1',
             email:"ram@gamil.com"
         },
         {
             id:2,
-            name:"rony",
+            name:"user3",
+            email:'rony@gmail.com'
+        },
+        {
+            id:3,
+            name:'user-3',
+            email:"ram@gamil.com"
+        },
+        {
+            id:4,
+            name:"user-4",
             email:'rony@gmail.com'
         },
     ])
@@ -56,7 +66,7 @@ export default function App(){
 
             <div>
                 <h2>Using States with Array</h2>
-                {usersData.map((user)=> <UseStateArray key={user.id} user_data={user}/>)}
+                {usersData.map((user)=> <UseStateArray key={user.id} user_data={user} setUsers={setUserData}/>)}
             </div>
         </div>
     )
