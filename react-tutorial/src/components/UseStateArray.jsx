@@ -6,6 +6,7 @@ export function UseStateArray({user_data,setUsers }){
     const [isEditing, setIsEditing] =useState(false)
     const [username, setUsername] = useState(name)
     const [usermail, setUsermail] = useState(email)
+    
     return(
             
         <div>
@@ -16,7 +17,15 @@ export function UseStateArray({user_data,setUsers }){
                     setIsEditing((currentState)=> !currentState)
                 }
             }>Edit</button> 
-            <button>Delete</button>
+            <button onClick={
+                ()=>{
+                    setUsers((currentUserState)=>{
+                        return currentUserState.filter(
+                            (currentUser)=> currentUser.id !== id
+                        )
+                })
+                }
+            }>Delete</button>
             {isEditing &&
             (<button onClick={
                 ()=>{
@@ -24,6 +33,7 @@ export function UseStateArray({user_data,setUsers }){
                         return (currentUsersState.map((currentUser)=>{
                             if(currentUser.id===id){
                                 return {...currentUser, name:username, email:usermail}
+    
                             }
                             else return currentUser
                         }
