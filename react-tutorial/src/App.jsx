@@ -7,6 +7,10 @@ import { UseStateArray } from "./components/UseStateArray"
 import { UsingPostApi } from './components/UsingPostApi'
 import { UsingCustomHook } from './components/UsingCustomHook'
 
+import { userContext } from './utils/context/useUserContext'
+import { PostContainer } from './components/PostContainer'
+
+
 export default function App(){
 
     // For adding New Users
@@ -179,7 +183,26 @@ export default function App(){
                 
              </div>
 
+            <div>
+                <h1>Using useContext</h1>
+                <p>the use of this useContext is that instead of sending different parameters inside props, we will declare a new name function that will have all the required variablse/parameters inside it with their default values.</p>
+            
+                <userContext.Provider 
+                value={{
+                    id:1,
+                    username:'user-1',
+                    useremail:'user-mail',
+                    displayname:'user name'
+                }}>
 
+                    <PostContainer/>
+
+                </userContext.Provider>
+            
+            
+            
+            
+            </div>
         </div>
     )
 }
