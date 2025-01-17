@@ -1,5 +1,5 @@
 import {useEffect} from 'react'
-
+import {useDocumentClick} from '../utils/hooks/useDocumentClick'
 
 
 export function UsingCustomHook(){
@@ -18,6 +18,7 @@ export function UsingCustomHook(){
 
     }, [])
 
+    useDocumentClick()
     return(
         <div>
             <h1>Event On</h1>

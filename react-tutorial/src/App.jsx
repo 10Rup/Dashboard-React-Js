@@ -174,7 +174,8 @@ export default function App(){
                     setToggle((currentState)=> !currentState)
                 }
                 }>Toggle Hook</button>
-                {toggle && <UsingCustomHook/>}
+                {/* uncomment  the below code to see effect */}
+                {/* {toggle && <UsingCustomHook/>} */}
                 
              </div>
 
