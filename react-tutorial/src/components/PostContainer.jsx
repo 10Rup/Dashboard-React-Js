@@ -6,7 +6,10 @@ export function PostContainer(){
     return(
         <div>
             <h6>Post Container</h6>
-            {userContextData.username}
+            <div>{userContextData.username}</div>
+            <div>{userContextData.name}</div>
+            <div>{userContextData.phone}</div>
+            <div>{userContextData.email}</div>
             <PostContent />
         </div>
     )

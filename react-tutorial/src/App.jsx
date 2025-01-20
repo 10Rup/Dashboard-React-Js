@@ -10,8 +10,25 @@ import { UsingCustomHook } from './components/UsingCustomHook'
 import { userContext } from './utils/context/useUserContext'
 import { PostContainer } from './components/PostContainer'
 
+import { useFetchUser } from './utils/hooks/useFetchUser.jsx'
+
 
 export default function App(){
+
+    const [user_data_new, setUser_Data_New] = useState({user:'default'})
+    const {user, loading, error} = useFetchUser(6);
+    // console.log(user,loading,error)
+
+    // console.log(loading)
+    useEffect(() =>{
+        if(!loading && !error && user ){
+            setUser_Data_New(user)
+            console.log("updating data")
+        }
+    }, [loading,error, user])
+    console.log(loading)
+    console.log( user_data_new )
+
 
     // For adding New Users
     const [UserName, setUserName]= useState("")
@@ -47,7 +64,7 @@ export default function App(){
 
     // using useEffect
     useEffect(()=>{
-        console.log('useEffect is called')
+        // console.log('useEffect is called')
         // document.title = "React - "+ counter
     }, [counter])
 
@@ -70,14 +87,23 @@ export default function App(){
                     method:'GET'
                 })
                 const jsonData = await response.json()
-                console.log(jsonData)
+                // console.log(jsonData)
             } catch (err) {
-                console.log("having error - "+err)
+                // console.log("having error - "+err)
             }
             
         }
 
         fetchUsers()
+    })
+
+
+    // For useContext
+    const [ userContextData , setUserconstextData] = useState({
+        id:1,
+        username:'user-1',
+        useremail:'user-mail',
+        displayname:'user name'
     })
 
     return(
@@ -188,15 +214,11 @@ export default function App(){
                 <p>the use of this useContext is that instead of sending different parameters inside props, we will declare a new name function that will have all the required variablse/parameters inside it with their default values.</p>
             
                 <userContext.Provider 
-                value={{
-                    id:1,
-                    username:'user-1',
-                    useremail:'user-mail',
-                    displayname:'user name'
-                }}>
+            value={{ ...user_data_new, setUserData: setUserconstextData}}>
 
-                    <PostContainer/>
-
+                    
+                    {/* <PostContainer/> */}
+                    <>{loading ? <h1>loading.......</h1> :<PostContainer/>}</>
                 </userContext.Provider>
             
             
