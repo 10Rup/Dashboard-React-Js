@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <UserDashBoard />,
     children:[
       {
-        path:'C hild-Pages',
+        path:'Child-Pages',
         element: <ChildPage />
       },
       {
